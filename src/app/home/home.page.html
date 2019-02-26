@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="welcome-card">
+    <ion-img src="http://jpstechno.com/images/jpslogo.png"></ion-img>
+    <ion-card-header>
+      <ion-card-subtitle>JPSTech Python</ion-card-subtitle>
+      <ion-card-title>Welcome to Python.</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <!-- <p>Now that your app has been created, you'll want to start building out features and components. Check out some of the resources below for next steps.</p> -->
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngFor="let course of courses">
+    <ion-card-header>
+      <ion-card-title>{{ course.title }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <iframe
+        width="100%"
+        height="315"
+        [src]="sanitizer.bypassSecurityTrustResourceUrl(course.url)"
+        frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        webkitallowfullscreen
+        mozallowfullscreen
+        allowfullscreen
+      >
+      </iframe>
+    </ion-card-content>
+    <ion-card-content>
+      <p>{{ course.description }}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
